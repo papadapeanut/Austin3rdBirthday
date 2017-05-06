@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="ipad9_7" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Austins3rdBday" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV8-oB-Srm">
+                                <rect key="frame" x="0.0" y="33" width="1024" height="51"/>
+                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                                <color key="textColor" red="0.32596933334416467" green="0.65440367450974724" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxL-RC-Hp9">
+                                <rect key="frame" x="0.0" y="99" width="1024" height="669"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLD-sZ-yjC">
+                                <rect key="frame" x="872" y="13" width="60" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="Q6k-e1-7ro"/>
+                                    <constraint firstAttribute="height" constant="78" id="rDd-KY-gio"/>
+                                </constraints>
+                                <state key="normal" image="questionMark">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKm-cu-17F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-Lr-Ng2">
+                                <rect key="frame" x="428" y="623" width="168" height="137"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="168" id="Ikb-Ox-2UK"/>
+                                    <constraint firstAttribute="height" constant="137" id="SXE-Zd-UvG"/>
+                                </constraints>
+                                <state key="normal" image="i-go-it">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rwb-as-g1h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="top" secondItem="MLD-sZ-yjC" secondAttribute="bottom" constant="8" symbolic="YES" id="6mr-zv-yDF"/>
+                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="leading" secondItem="eV8-oB-Srm" secondAttribute="leading" id="FWL-DP-2QV"/>
+                            <constraint firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="LV5-mo-qAu"/>
+                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="XNm-AG-vCd"/>
+                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="aJ3-Mv-Tbw"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="bRd-XT-7yo"/>
+                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="centerX" secondItem="Zgg-Lr-Ng2" secondAttribute="centerX" id="dq2-uR-4wH"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zgg-Lr-Ng2" secondAttribute="bottom" constant="8" symbolic="YES" id="o0X-gS-6ME"/>
+                            <constraint firstItem="MLD-sZ-yjC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="13" id="oj1-rB-Q3D"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qze-tU-4YK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="MLD-sZ-yjC" secondAttribute="trailing" constant="72" id="rjV-ey-LDD"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btn_clue" destination="MLD-sZ-yjC" id="sMl-7o-usa"/>
+                        <outlet property="btn_submit" destination="Zgg-Lr-Ng2" id="Q1m-G7-pa8"/>
+                        <outlet property="clueImage" destination="dxL-RC-Hp9" id="kYV-TW-knv"/>
+                        <outlet property="lbl_question" destination="eV8-oB-Srm" id="pZP-0O-DIg"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="353" y="155"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="i-go-it" width="344" height="339"/>
+        <image name="questionMark" width="1500" height="1600"/>
+    </resources>
+</document>
