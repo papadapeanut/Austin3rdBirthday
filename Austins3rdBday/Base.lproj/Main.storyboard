@@ -58,12 +58,21 @@
                                     <action selector="clickSubmit:" destination="BYZ-38-t0r" eventType="touchUpInside" id="rwb-as-g1h"/>
                                 </connections>
                             </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0vK-ka-jh6" userLabel="player_image">
+                                <rect key="frame" x="0.0" y="99" width="235" height="275"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="235" id="qXE-PN-jJ7"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="top" secondItem="MLD-sZ-yjC" secondAttribute="bottom" constant="8" symbolic="YES" id="6mr-zv-yDF"/>
+                            <constraint firstItem="0vK-ka-jh6" firstAttribute="top" secondItem="dxL-RC-Hp9" secondAttribute="top" id="BFZ-In-Yjs"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="leading" secondItem="eV8-oB-Srm" secondAttribute="leading" id="FWL-DP-2QV"/>
                             <constraint firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="LV5-mo-qAu"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0vK-ka-jh6" secondAttribute="bottom" constant="394" id="Miw-Ni-eA2"/>
+                            <constraint firstItem="0vK-ka-jh6" firstAttribute="leading" secondItem="eV8-oB-Srm" secondAttribute="leading" id="VsR-32-j2D"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="XNm-AG-vCd"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="aJ3-Mv-Tbw"/>
                             <constraint firstItem="eV8-oB-Srm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="bRd-XT-7yo"/>
@@ -79,11 +88,12 @@
                         <outlet property="btn_submit" destination="Zgg-Lr-Ng2" id="Q1m-G7-pa8"/>
                         <outlet property="clueImage" destination="dxL-RC-Hp9" id="kYV-TW-knv"/>
                         <outlet property="lbl_question" destination="eV8-oB-Srm" id="pZP-0O-DIg"/>
+                        <outlet property="playerImage" destination="0vK-ka-jh6" id="WOE-Fe-rK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="353" y="155"/>
+            <point key="canvasLocation" x="352.734375" y="154.6875"/>
         </scene>
     </scenes>
     <resources>
