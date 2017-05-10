@@ -8,25 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		EC3C16661EBE394200A67CC4 /* players in Resources */ = {isa = PBXBuildFile; fileRef = EC3C16651EBE394200A67CC4 /* players */; };
+		EC68591F1EC0151200B22992 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC68591D1EC0151200B22992 /* AVFoundation.framework */; };
+		EC6859201EC0151200B22992 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC68591E1EC0151200B22992 /* AVKit.framework */; };
+		EC6859221EC01D8200B22992 /* Video.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = EC6859211EC01D8200B22992 /* Video.mp4 */; };
+		EC6859241EC1053300B22992 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC6859231EC1053300B22992 /* AudioToolbox.framework */; };
+		EC6859261EC1154700B22992 /* blaze_horn.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC6859251EC1154700B22992 /* blaze_horn.mp3 */; };
 		EC6E32681EBA812600C869E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6E32671EBA812600C869E5 /* AppDelegate.swift */; };
 		EC6E326A1EBA812600C869E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC6E32691EBA812600C869E5 /* ViewController.swift */; };
 		EC6E32791EBA82A300C869E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EC6E326B1EBA812600C869E5 /* Main.storyboard */; };
 		EC6E327B1EBA83CF00C869E5 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6E327A1EBA83CF00C869E5 /* Images.xcassets */; };
 		EC6E327C1EBA844C00C869E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EC6E326E1EBA812600C869E5 /* Assets.xcassets */; };
 		EC6E327E1EBA976700C869E5 /* images in Resources */ = {isa = PBXBuildFile; fileRef = EC6E327D1EBA976700C869E5 /* images */; };
+		ECC566E61EC1560600F21D7A /* miss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECC566E51EC1560600F21D7A /* miss.mp3 */; };
+		ECC566E81EC15B1F00F21D7A /* mater_KaChing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EC3C16651EBE394200A67CC4 /* players */ = {isa = PBXFileReference; lastKnownFileType = folder; path = players; sourceTree = SOURCE_ROOT; };
+		EC68591D1EC0151200B22992 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		EC68591E1EC0151200B22992 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
+		EC6859211EC01D8200B22992 /* Video.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = Video.mp4; sourceTree = "<group>"; };
+		EC6859231EC1053300B22992 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		EC6859251EC1154700B22992 /* blaze_horn.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = blaze_horn.mp3; sourceTree = "<group>"; };
 		EC6E32641EBA812600C869E5 /* Austins3rdBday.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Austins3rdBday.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EC6E32671EBA812600C869E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		EC6E32691EBA812600C869E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		EC6E32691EBA812600C869E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = ViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
 		EC6E326C1EBA812600C869E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EC6E326E1EBA812600C869E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EC6E32711EBA812600C869E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EC6E32731EBA812600C869E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EC6E327A1EBA83CF00C869E5 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EC6E327D1EBA976700C869E5 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = SOURCE_ROOT; };
+		ECC566E51EC1560600F21D7A /* miss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = miss.mp3; sourceTree = "<group>"; };
+		ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mater_KaChing.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -34,17 +48,31 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EC6859241EC1053300B22992 /* AudioToolbox.framework in Frameworks */,
+				EC68591F1EC0151200B22992 /* AVFoundation.framework in Frameworks */,
+				EC6859201EC0151200B22992 /* AVKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		EC68591C1EC0151200B22992 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EC6859231EC1053300B22992 /* AudioToolbox.framework */,
+				EC68591D1EC0151200B22992 /* AVFoundation.framework */,
+				EC68591E1EC0151200B22992 /* AVKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EC6E325B1EBA812600C869E5 = {
 			isa = PBXGroup;
 			children = (
 				EC6E32661EBA812600C869E5 /* Austins3rdBday */,
 				EC6E32651EBA812600C869E5 /* Products */,
+				EC68591C1EC0151200B22992 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -68,6 +96,10 @@
 				EC6E32701EBA812600C869E5 /* LaunchScreen.storyboard */,
 				EC6E32731EBA812600C869E5 /* Info.plist */,
 				EC6E327A1EBA83CF00C869E5 /* Images.xcassets */,
+				EC6859211EC01D8200B22992 /* Video.mp4 */,
+				EC6859251EC1154700B22992 /* blaze_horn.mp3 */,
+				ECC566E51EC1560600F21D7A /* miss.mp3 */,
+				ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */,
 			);
 			path = Austins3rdBday;
 			sourceTree = "<group>";
@@ -134,9 +166,13 @@
 			files = (
 				EC6E327E1EBA976700C869E5 /* images in Resources */,
 				EC6E327C1EBA844C00C869E5 /* Assets.xcassets in Resources */,
+				ECC566E61EC1560600F21D7A /* miss.mp3 in Resources */,
 				EC6E327B1EBA83CF00C869E5 /* Images.xcassets in Resources */,
+				EC6859261EC1154700B22992 /* blaze_horn.mp3 in Resources */,
+				ECC566E81EC15B1F00F21D7A /* mater_KaChing.mp3 in Resources */,
 				EC6E32791EBA82A300C869E5 /* Main.storyboard in Resources */,
 				EC3C16661EBE394200A67CC4 /* players in Resources */,
+				EC6859221EC01D8200B22992 /* Video.mp4 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -198,6 +234,8 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
+				"DEBUG_ACTIVITY_MODE[sdk=iphonesimulator*]" = disable;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -249,6 +287,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_ACTIVITY_MODE = "";
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;

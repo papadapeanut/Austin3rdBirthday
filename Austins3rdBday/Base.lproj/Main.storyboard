@@ -23,27 +23,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eV8-oB-Srm">
-                                <rect key="frame" x="0.0" y="33" width="1024" height="51"/>
-                                <fontDescription key="fontDescription" name="Chalkduster" family="Chalkduster" pointSize="40"/>
+                                <rect key="frame" x="0.0" y="33" width="1024" height="57"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="40"/>
                                 <color key="textColor" red="0.32596933334416467" green="0.65440367450974724" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dxL-RC-Hp9">
                                 <rect key="frame" x="0.0" y="99" width="1024" height="669"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLD-sZ-yjC">
-                                <rect key="frame" x="872" y="13" width="60" height="78"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="Q6k-e1-7ro"/>
-                                    <constraint firstAttribute="height" constant="78" id="rDd-KY-gio"/>
-                                </constraints>
-                                <state key="normal" image="questionMark">
-                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                </state>
-                                <connections>
-                                    <action selector="clickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKm-cu-17F"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-Lr-Ng2">
                                 <rect key="frame" x="428" y="623" width="168" height="137"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -64,40 +51,92 @@
                                     <constraint firstAttribute="width" constant="235" id="qXE-PN-jJ7"/>
                                 </constraints>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbY-ka-FTs">
+                                <rect key="frame" x="913" y="42" width="102" height="21"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Regular" family="Chalkboard SE" pointSize="13"/>
+                                <color key="textColor" red="0.3259693333" green="0.65440367450000003" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MLD-sZ-yjC">
+                                <rect key="frame" x="845" y="13" width="60" height="78"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="78" id="Qej-Jy-cOD"/>
+                                    <constraint firstAttribute="width" constant="60" id="iNF-qK-qTa"/>
+                                </constraints>
+                                <state key="normal" image="questionMark">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="KKm-cu-17F"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dBJ-co-QEy" userLabel="Mater">
+                                <rect key="frame" x="44" y="0.0" width="146" height="101"/>
+                                <state key="normal" image="mater_stars"/>
+                                <connections>
+                                    <action selector="playMater:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xex-CC-VKq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFC-8l-6yn">
+                                <rect key="frame" x="753" y="676" width="245" height="30"/>
+                                <accessibility key="accessibilityConfiguration" identifier="btn_PlayVideo"/>
+                                <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
+                                <state key="normal" title="Play Intro Video">
+                                    <color key="titleColor" red="1" green="0.1282569217" blue="0.045418126060000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="PlayVideo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="AJS-Id-Ll5"/>
+                                </connections>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.87964196963582841" green="0.97038022355750175" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="top" secondItem="MLD-sZ-yjC" secondAttribute="bottom" constant="8" symbolic="YES" id="6mr-zv-yDF"/>
+                            <constraint firstItem="nFC-8l-6yn" firstAttribute="centerX" secondItem="MLD-sZ-yjC" secondAttribute="centerX" id="1ko-vR-DSF"/>
+                            <constraint firstItem="nFC-8l-6yn" firstAttribute="centerY" secondItem="Zgg-Lr-Ng2" secondAttribute="centerY" id="9zq-qa-TeN"/>
+                            <constraint firstItem="dBJ-co-QEy" firstAttribute="centerX" secondItem="0vK-ka-jh6" secondAttribute="centerX" id="A7R-Q7-iCj"/>
+                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="top" secondItem="MLD-sZ-yjC" secondAttribute="bottom" constant="8" symbolic="YES" id="ADI-Aa-BG4"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="trailing" secondItem="dxL-RC-Hp9" secondAttribute="trailing" id="AVd-kO-7ed"/>
                             <constraint firstItem="0vK-ka-jh6" firstAttribute="top" secondItem="dxL-RC-Hp9" secondAttribute="top" id="BFZ-In-Yjs"/>
-                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="leading" secondItem="eV8-oB-Srm" secondAttribute="leading" id="FWL-DP-2QV"/>
-                            <constraint firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="LV5-mo-qAu"/>
+                            <constraint firstItem="MLD-sZ-yjC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="13" id="BQd-cN-sFi"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="dxL-RC-Hp9" secondAttribute="leading" id="C0k-kB-uIc"/>
+                            <constraint firstItem="RbY-ka-FTs" firstAttribute="centerY" secondItem="MLD-sZ-yjC" secondAttribute="centerY" id="CJS-mI-LG3"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0vK-ka-jh6" secondAttribute="bottom" constant="394" id="Miw-Ni-eA2"/>
-                            <constraint firstItem="0vK-ka-jh6" firstAttribute="leading" secondItem="eV8-oB-Srm" secondAttribute="leading" id="VsR-32-j2D"/>
-                            <constraint firstItem="dxL-RC-Hp9" firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="XNm-AG-vCd"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nFC-8l-6yn" secondAttribute="trailing" constant="6" id="Ql5-Bg-SBO"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nFC-8l-6yn" secondAttribute="bottom" constant="62" id="RBT-qs-qMb"/>
+                            <constraint firstItem="dBJ-co-QEy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="X1G-NU-dyA"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="aJ3-Mv-Tbw"/>
-                            <constraint firstItem="eV8-oB-Srm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="bRd-XT-7yo"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dBJ-co-QEy" secondAttribute="bottom" constant="667" id="bgC-z5-wNl"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="centerX" secondItem="Zgg-Lr-Ng2" secondAttribute="centerX" id="dq2-uR-4wH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RbY-ka-FTs" secondAttribute="trailing" constant="-11" id="eh4-Ne-0TP"/>
+                            <constraint firstItem="dBJ-co-QEy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="fni-gx-4eW"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="0vK-ka-jh6" secondAttribute="leading" id="hz8-Zx-r28"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zgg-Lr-Ng2" secondAttribute="bottom" constant="8" symbolic="YES" id="o0X-gS-6ME"/>
-                            <constraint firstItem="MLD-sZ-yjC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="13" id="oj1-rB-Q3D"/>
-                            <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="qze-tU-4YK"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="MLD-sZ-yjC" secondAttribute="trailing" constant="72" id="rjV-ey-LDD"/>
+                            <constraint firstItem="RbY-ka-FTs" firstAttribute="leading" secondItem="MLD-sZ-yjC" secondAttribute="trailing" constant="8" symbolic="YES" id="ozi-Rl-c9h"/>
+                            <constraint firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="qRG-Dg-Q8f"/>
+                            <constraint firstAttribute="trailing" secondItem="MLD-sZ-yjC" secondAttribute="trailing" constant="119" id="sIc-Pb-SDw"/>
+                            <constraint firstItem="RbY-ka-FTs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="ta9-Fp-uTL"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="xNe-tT-KGx"/>
+                            <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xge-ib-AbI"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="btn_clue" destination="MLD-sZ-yjC" id="sMl-7o-usa"/>
+                        <outlet property="btn_clue" destination="MLD-sZ-yjC" id="C80-R5-hev"/>
+                        <outlet property="btn_playVideo" destination="nFC-8l-6yn" id="7yJ-Xg-eA6"/>
                         <outlet property="btn_submit" destination="Zgg-Lr-Ng2" id="Q1m-G7-pa8"/>
                         <outlet property="clueImage" destination="dxL-RC-Hp9" id="kYV-TW-knv"/>
+                        <outlet property="lbl_hint" destination="RbY-ka-FTs" id="nsF-se-bmq"/>
                         <outlet property="lbl_question" destination="eV8-oB-Srm" id="pZP-0O-DIg"/>
                         <outlet property="playerImage" destination="0vK-ka-jh6" id="WOE-Fe-rK8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="352.734375" y="154.6875"/>
+            <point key="canvasLocation" x="157.6171875" y="145.3125"/>
         </scene>
     </scenes>
     <resources>
         <image name="i-go-it" width="344" height="339"/>
+        <image name="mater_stars" width="457" height="380"/>
         <image name="questionMark" width="1500" height="1600"/>
     </resources>
 </document>

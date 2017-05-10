@@ -7,11 +7,12 @@
 //
 
 import UIKit
-
-
-
+import AVFoundation
+import AVKit
+import AudioToolbox
 
 class ViewController: UIViewController {
+    
     
     //UI elements
     @IBOutlet weak var lbl_question: UILabel!
@@ -19,22 +20,27 @@ class ViewController: UIViewController {
     @IBOutlet weak var clueImage: UIImageView!
     @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var btn_submit: UIButton!
-    
-    
+    @IBOutlet weak var btn_playVideo: UIButton!
+    @IBOutlet weak var lbl_hint: UILabel!
     
     //Variable declarations
-    var qNum=Int()
-    var question=String()
-    var numberOfQuestions=Int()
-    var picLocation=Array<URL>()
-    var playerPicLocation=Array<URL>()
-    let happyBday="Happy 3rd Birthday Austin!"
-    var answers: [String] = ["Mater", "Lightning", "Blaze", "Pickle", "Darington", "Stripes", "Thomas", "Percy"]
+    var playerController = AVPlayerViewController()
+    var audioPlayer:AVAudioPlayer?
+    var player:AVPlayer?
+    var qNum = Int()
+    var question = String()
+    var numberOfQuestions = Int()
+    var picLocation = Array<URL>()
+    var playerPicLocation = Array<URL>()
+    let happyBday = "Happy 3rd Birthday Austin!"
+    var answers: [String] = ["","Mater", "Lightning", "Blaze", "Pickle", "Darington", "Stripes", "Thomas", "Percy"]
+    var hints: [String] = ["", "Cars", "McQueen", "Let's..."]
     
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         //Intialize picLocation array to create URLs for pictures
         buildImageArray()
@@ -50,6 +56,16 @@ class ViewController: UIViewController {
         //Set question Label
         lbl_question.text = happyBday
         
+        //Set lbl_hint for introduction view
+        lbl_hint.text = "<--Click for hint"
+        
+        //Set introduction birthday balloons
+        clueImage.image = #imageLiteral(resourceName: "happyBirthday")
+    }
+    
+    //Play mater sound when mater is pressed
+    @IBAction func playMater(_ sender: Any) {
+        playSound(soundName: "mater_KaChing", fileExt: ".mp3")
     }
 
     override func didReceiveMemoryWarning() {
@@ -57,6 +73,37 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    
+    //Function to show video player and play video
+    func playVideo(theName: String, fileExt: String){
+    
+    let videoString:String? = Bundle.main.path(forResource: theName, ofType: fileExt)
+    
+    if let url = videoString {
+        let videoURL = NSURL(fileURLWithPath: url)
+        player = AVPlayer(url: videoURL as URL)
+        playerController.player = self.player
+        }
+    }
+    
+    
+    //function to play sound effect pass resource name & extension
+    func playSound(soundName: String, fileExt: String) {
+        let url = Bundle.main.url(forResource: soundName, withExtension: fileExt)!
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOf: url)
+            guard let audioPlayer = audioPlayer else { return }
+            
+            audioPlayer.prepareToPlay()
+            audioPlayer.play()
+        } catch let error as NSError {
+            print(error.description)
+        }
+    }
+
+    
+    
 
     //Pass the number of the image in the array to fetch --Pictures
     func FetchClueImage(imageNumber: Int){
@@ -75,6 +122,18 @@ class ViewController: UIViewController {
             }
             }.resume()
     }
+    
+    
+    //Play Introduction Video on button press
+    @IBAction func PlayVideo(_ sender: Any) {
+        playVideo(theName: "Video", fileExt: ".mp4")
+        self.present(self.playerController, animated: true, completion: {
+            self.playerController.player = self.player
+            self.player?.play()
+        })
+    }
+    
+    
     
     //Pass the number of the image in the array to fetch -- Players
     func FetchPlayerImage(imageNumber: Int){
@@ -98,11 +157,30 @@ class ViewController: UIViewController {
 
     //Action take when submit button clicked
     @IBAction func clickSubmit(_ sender: UIButton) {
-        
+        if qNum == 0 {
+            getQuestion()
+            btn_playVideo.isEnabled = false
+            btn_playVideo.isHidden = true
+        }else{
             
-            let alertController = UIAlertController(title: "Good Job Austin!", message: "", preferredStyle: .alert)
+            //Make sure hint label is empty when loading new question
+            lbl_hint.text = ""
             
-            let saveAction = UIAlertAction(title: "Save", style: .default, handler: {
+            let alertController = UIAlertController(title: "Assigning below", message: "", preferredStyle: .alert)
+            
+            // Background color.
+            let backView = alertController.view.subviews.last?.subviews.last
+            backView?.layer.cornerRadius = 10.0
+            backView?.backgroundColor = UIColor.darkGray
+            
+            // Change Title With Color and Font:
+            let myString  = "Enter Secret Code"
+            var myMutableString = NSMutableAttributedString()
+            myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSFontAttributeName:UIFont(name: "Chalkboard SE", size: 24.0)!])
+            myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location:0,length:myString.characters.count))
+            alertController.setValue(myMutableString, forKey: "attributedTitle")
+            
+            let saveAction = UIAlertAction(title: "Submit", style: .default, handler: {
                 alert -> Void in
                 
                 let ClueTextField = alertController.textFields![0] as UITextField
@@ -110,13 +188,13 @@ class ViewController: UIViewController {
                 self.checkPassword(thePassword: ClueTextField.text!)
             })
             
-            let cancelAction = UIAlertAction(title: "Cancel", style: .default, handler: {
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
                 (action : UIAlertAction!) -> Void in
                 
             })
             
             alertController.addTextField { (textField : UITextField!) -> Void in
-                textField.placeholder = "Enter Clue Password"
+                textField.placeholder = "Secret Password"
             }
             
             
@@ -125,36 +203,79 @@ class ViewController: UIViewController {
             
             
             self.present(alertController, animated: true, completion: nil)
-            
         }
-    
-
-    
-
-
-    //Action taken when clue button clicked
-    @IBAction func clickButton(_ sender: UIButton) {
-       
     }
     
+
+    
+    //Action taken when clue button clicked
+    @IBAction func clickButton(_ sender: UIButton) {
+        //Ignore click if on introduction screen
+        if qNum != 0{
+            lbl_hint.text = hints[qNum]
+        }
+    }
+    
+    //Check answers array that correct password was entered & display Alert message
     func checkPassword(thePassword: String){
         let rightPassword = answers[qNum]
         print("The Actual Password is " + rightPassword)
         print("The Inputted Password was " + thePassword)
        
-        //This isn't Working ----*****----
         if thePassword == rightPassword {
-            let alertController = UIAlertController(title: "You got it!", message: "", preferredStyle: .alert)
+            
+            playSound(soundName: "blaze_horn", fileExt: ".mp3")
+            
+            let alertController = UIAlertController(title: "Assigning below", message: "", preferredStyle: .alert)
+            
+            // Background color.
+            let backView = alertController.view.subviews.last?.subviews.last
+            backView?.layer.cornerRadius = 10.0
+            backView?.backgroundColor = UIColor.darkGray
+            
+            // Change Title With Color and Font:
+            let myString  = "You got it!"
+            var myMutableString = NSMutableAttributedString()
+            myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSFontAttributeName:UIFont(name: "Chalkboard SE", size: 24.0)!])
+            myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location:0,length:myString.characters.count))
+            alertController.setValue(myMutableString, forKey: "attributedTitle")
+
         
-            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
-                print("you have pressed OK button");
+            let OKAction = UIAlertAction(title: "Click Here For Next Clue", style: .default) { (action:UIAlertAction!) in
+                print("you have pressed OK button")
                 self.getQuestion()
-        }
-    
+                }
+            
             alertController.addAction(OKAction)
-    
             self.present(alertController, animated: true, completion:nil)
 
+        }else{
+            
+            playSound(soundName: "miss", fileExt: ".mp3")
+            
+            let alertController = UIAlertController(title: "Assigning below", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            
+            // Background color.
+            let backView = alertController.view.subviews.last?.subviews.last
+            backView?.layer.cornerRadius = 10.0
+            backView?.backgroundColor = UIColor.darkGray
+            
+            // Change Title With Color and Font:
+            let myString  = "Oops, Try Again!"
+            var myMutableString = NSMutableAttributedString()
+            myMutableString = NSMutableAttributedString(string: myString as String, attributes: [NSFontAttributeName:UIFont(name: "Chalkboard SE", size: 24.0)!])
+            myMutableString.addAttribute(NSForegroundColorAttributeName, value: UIColor.red, range: NSRange(location:0,length:myString.characters.count))
+            alertController.setValue(myMutableString, forKey: "attributedTitle")
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                print("Incorrect Passcode entered")
+                
+            }
+            
+            alertController.addAction(OKAction)
+            
+            self.present(alertController, animated: true, completion:nil)
+            
         }
         
     }
@@ -179,6 +300,9 @@ class ViewController: UIViewController {
     }
     
     
+    
+    
+    
     //builds array of URL to images from images folder -- Clue pictures
     func buildImageArray(){
     if let path = Bundle.main.resourcePath {
@@ -197,9 +321,7 @@ class ViewController: UIViewController {
     
     picLocation = imageURLs
         
-    // Create image from URL
-    //var myImage =  UIImage(data: NSData(contentsOfURL: imageURLs[0])!)
-    
+        
     } catch let error1 as NSError {
     print(error1.description)
     }
