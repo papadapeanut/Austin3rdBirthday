@@ -22,6 +22,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var btn_submit: UIButton!
     @IBOutlet weak var btn_playVideo: UIButton!
     @IBOutlet weak var lbl_hint: UILabel!
+    @IBOutlet weak var btn_plane: UIButton!
+    @IBOutlet weak var airplaneLeftConstraint: NSLayoutConstraint!
+
+    
     
     //Variable declarations
     var playerController = AVPlayerViewController()
@@ -35,7 +39,7 @@ class ViewController: UIViewController {
     let happyBday = "Happy 3rd Birthday Austin!"
     var answers: [String] = ["","Mater", "Lightning", "Blaze", "Pickle", "Darington", "Stripes", "Thomas", "Percy"]
     var hints: [String] = ["", "Cars", "McQueen", "Let's..."]
-    
+    var videoWatched = false
     
 
     override func viewDidLoad() {
@@ -61,8 +65,26 @@ class ViewController: UIViewController {
         
         //Set introduction birthday balloons
         clueImage.image = #imageLiteral(resourceName: "happyBirthday")
+        
+       
+
     }
     
+    //Play airplane sound and animate plane to leave the screen when airplane is pressed
+    @IBAction func playPlaneSound(_ sender: UIButton) {
+        
+        playSound(soundName: "planeSound", fileExt: ".mp3")
+        
+        //Animation to move airplane off screen then return to original location
+        let originalLocation = self.airplaneLeftConstraint.constant
+        self.airplaneLeftConstraint.constant = -150
+        UIView.animate(withDuration: 7, animations: {
+            self.view.layoutIfNeeded()
+        }) {_ in self.airplaneLeftConstraint.constant = originalLocation}
+    }
+    
+    
+
     //Play mater sound when mater is pressed
     @IBAction func playMater(_ sender: Any) {
         playSound(soundName: "mater_KaChing", fileExt: ".mp3")
@@ -130,6 +152,7 @@ class ViewController: UIViewController {
         self.present(self.playerController, animated: true, completion: {
             self.playerController.player = self.player
             self.player?.play()
+            self.videoWatched = true
         })
     }
     
@@ -157,11 +180,27 @@ class ViewController: UIViewController {
 
     //Action take when submit button clicked
     @IBAction func clickSubmit(_ sender: UIButton) {
-        if qNum == 0 {
+        if videoWatched == false{
+            playVideo(theName: "Video", fileExt: ".mp4")
+            self.present(self.playerController, animated: true, completion: {
+                self.playerController.player = self.player
+                self.player?.play()
+                self.videoWatched = true
+            })
+        } else if qNum == 0 {
             getQuestion()
+            
+            //Disable intro video button and hide once game has started
             btn_playVideo.isEnabled = false
             btn_playVideo.isHidden = true
+            
+            //Disable airplane button and hide once game has started
+            btn_plane.isEnabled = false
+            btn_plane.isHidden = true
+            
         }else{
+            
+            
             
             //Make sure hint label is empty when loading new question
             lbl_hint.text = ""

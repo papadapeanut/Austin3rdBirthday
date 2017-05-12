@@ -21,6 +21,7 @@
 		EC6E327E1EBA976700C869E5 /* images in Resources */ = {isa = PBXBuildFile; fileRef = EC6E327D1EBA976700C869E5 /* images */; };
 		ECC566E61EC1560600F21D7A /* miss.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECC566E51EC1560600F21D7A /* miss.mp3 */; };
 		ECC566E81EC15B1F00F21D7A /* mater_KaChing.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */; };
+		ECE3E9F71EC3769200D5E0F8 /* planeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = ECE3E9F61EC3769200D5E0F8 /* planeSound.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		EC6E327D1EBA976700C869E5 /* images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = images; sourceTree = SOURCE_ROOT; };
 		ECC566E51EC1560600F21D7A /* miss.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = miss.mp3; sourceTree = "<group>"; };
 		ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mater_KaChing.mp3; sourceTree = "<group>"; };
+		ECE3E9F61EC3769200D5E0F8 /* planeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = planeSound.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				EC6859251EC1154700B22992 /* blaze_horn.mp3 */,
 				ECC566E51EC1560600F21D7A /* miss.mp3 */,
 				ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */,
+				ECE3E9F61EC3769200D5E0F8 /* planeSound.mp3 */,
 			);
 			path = Austins3rdBday;
 			sourceTree = "<group>";
@@ -167,6 +170,7 @@
 				EC6E327E1EBA976700C869E5 /* images in Resources */,
 				EC6E327C1EBA844C00C869E5 /* Assets.xcassets in Resources */,
 				ECC566E61EC1560600F21D7A /* miss.mp3 in Resources */,
+				ECE3E9F71EC3769200D5E0F8 /* planeSound.mp3 in Resources */,
 				EC6E327B1EBA83CF00C869E5 /* Images.xcassets in Resources */,
 				EC6859261EC1154700B22992 /* blaze_horn.mp3 in Resources */,
 				ECC566E81EC15B1F00F21D7A /* mater_KaChing.mp3 in Resources */,

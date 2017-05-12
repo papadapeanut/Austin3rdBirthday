@@ -77,8 +77,19 @@
                                     <action selector="playMater:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xex-CC-VKq"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8W-Kq-kr7" userLabel="Airplane">
+                                <rect key="frame" x="210" y="528" width="150" height="70"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="70" id="1Sh-bA-SWh"/>
+                                    <constraint firstAttribute="width" constant="150" id="iSf-9w-lYe"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="airplane"/>
+                                <connections>
+                                    <action selector="playPlaneSound:" destination="BYZ-38-t0r" eventType="touchUpInside" id="MY0-Mq-69c"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nFC-8l-6yn">
-                                <rect key="frame" x="753" y="676" width="245" height="30"/>
+                                <rect key="frame" x="678" y="676" width="245" height="30"/>
                                 <accessibility key="accessibilityConfiguration" identifier="btn_PlayVideo"/>
                                 <fontDescription key="fontDescription" name="ChalkboardSE-Bold" family="Chalkboard SE" pointSize="25"/>
                                 <state key="normal" title="Play Intro Video">
@@ -91,8 +102,6 @@
                         </subviews>
                         <color key="backgroundColor" red="0.87964196963582841" green="0.97038022355750175" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="nFC-8l-6yn" firstAttribute="centerX" secondItem="MLD-sZ-yjC" secondAttribute="centerX" id="1ko-vR-DSF"/>
-                            <constraint firstItem="nFC-8l-6yn" firstAttribute="centerY" secondItem="Zgg-Lr-Ng2" secondAttribute="centerY" id="9zq-qa-TeN"/>
                             <constraint firstItem="dBJ-co-QEy" firstAttribute="centerX" secondItem="0vK-ka-jh6" secondAttribute="centerX" id="A7R-Q7-iCj"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="top" secondItem="MLD-sZ-yjC" secondAttribute="bottom" constant="8" symbolic="YES" id="ADI-Aa-BG4"/>
                             <constraint firstItem="eV8-oB-Srm" firstAttribute="trailing" secondItem="dxL-RC-Hp9" secondAttribute="trailing" id="AVd-kO-7ed"/>
@@ -100,27 +109,33 @@
                             <constraint firstItem="MLD-sZ-yjC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" constant="13" id="BQd-cN-sFi"/>
                             <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="dxL-RC-Hp9" secondAttribute="leading" id="C0k-kB-uIc"/>
                             <constraint firstItem="RbY-ka-FTs" firstAttribute="centerY" secondItem="MLD-sZ-yjC" secondAttribute="centerY" id="CJS-mI-LG3"/>
+                            <constraint firstItem="nFC-8l-6yn" firstAttribute="centerY" secondItem="Zgg-Lr-Ng2" secondAttribute="centerY" id="LZd-IR-oBy"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="0vK-ka-jh6" secondAttribute="bottom" constant="394" id="Miw-Ni-eA2"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="nFC-8l-6yn" secondAttribute="trailing" constant="6" id="Ql5-Bg-SBO"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nFC-8l-6yn" secondAttribute="bottom" constant="62" id="RBT-qs-qMb"/>
+                            <constraint firstItem="A8W-Kq-kr7" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="210" id="Pv5-AL-VsQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="nFC-8l-6yn" secondAttribute="bottom" constant="62" id="U6W-PS-d4r"/>
                             <constraint firstItem="dBJ-co-QEy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="X1G-NU-dyA"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="aJ3-Mv-Tbw"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="dBJ-co-QEy" secondAttribute="bottom" constant="667" id="bgC-z5-wNl"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="centerX" secondItem="Zgg-Lr-Ng2" secondAttribute="centerX" id="dq2-uR-4wH"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RbY-ka-FTs" secondAttribute="trailing" constant="-11" id="eh4-Ne-0TP"/>
+                            <constraint firstItem="nFC-8l-6yn" firstAttribute="leading" secondItem="Zgg-Lr-Ng2" secondAttribute="trailing" constant="82" id="ffK-8j-9NX"/>
                             <constraint firstItem="dBJ-co-QEy" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="fni-gx-4eW"/>
                             <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="0vK-ka-jh6" secondAttribute="leading" id="hz8-Zx-r28"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="nFC-8l-6yn" secondAttribute="trailing" constant="81" id="iD8-Hn-hCE"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zgg-Lr-Ng2" secondAttribute="bottom" constant="8" symbolic="YES" id="o0X-gS-6ME"/>
                             <constraint firstItem="RbY-ka-FTs" firstAttribute="leading" secondItem="MLD-sZ-yjC" secondAttribute="trailing" constant="8" symbolic="YES" id="ozi-Rl-c9h"/>
                             <constraint firstAttribute="trailing" secondItem="eV8-oB-Srm" secondAttribute="trailing" id="qRG-Dg-Q8f"/>
                             <constraint firstAttribute="trailing" secondItem="MLD-sZ-yjC" secondAttribute="trailing" constant="119" id="sIc-Pb-SDw"/>
                             <constraint firstItem="RbY-ka-FTs" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="22" id="ta9-Fp-uTL"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="A8W-Kq-kr7" secondAttribute="bottom" constant="170" id="wNo-I0-KZ9"/>
                             <constraint firstItem="eV8-oB-Srm" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="13" id="xNe-tT-KGx"/>
                             <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="xge-ib-AbI"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="airplaneLeftConstraint" destination="Pv5-AL-VsQ" id="9wt-GQ-rSi"/>
                         <outlet property="btn_clue" destination="MLD-sZ-yjC" id="C80-R5-hev"/>
+                        <outlet property="btn_plane" destination="A8W-Kq-kr7" id="wxB-LZ-wuf"/>
                         <outlet property="btn_playVideo" destination="nFC-8l-6yn" id="7yJ-Xg-eA6"/>
                         <outlet property="btn_submit" destination="Zgg-Lr-Ng2" id="Q1m-G7-pa8"/>
                         <outlet property="clueImage" destination="dxL-RC-Hp9" id="kYV-TW-knv"/>
@@ -135,6 +150,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="airplane" width="868" height="392"/>
         <image name="i-go-it" width="344" height="339"/>
         <image name="mater_stars" width="457" height="380"/>
         <image name="questionMark" width="1500" height="1600"/>
