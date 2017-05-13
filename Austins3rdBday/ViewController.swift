@@ -11,6 +11,15 @@ import AVFoundation
 import AVKit
 import AudioToolbox
 
+extension UIView {
+    func shake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 1.0
+        animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
+        layer.add(animation, forKey: "shake")
+    }
+   }
 class ViewController: UIViewController {
     
     
@@ -18,6 +27,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbl_question: UILabel!
     @IBOutlet weak var btn_clue: UIButton!
     @IBOutlet weak var clueImage: UIImageView!
+    @IBOutlet weak var btn_mater: UIButton!
     @IBOutlet weak var playerImage: UIImageView!
     @IBOutlet weak var btn_submit: UIButton!
     @IBOutlet weak var btn_playVideo: UIButton!
@@ -82,19 +92,19 @@ class ViewController: UIViewController {
             self.view.layoutIfNeeded()
         }) {_ in self.airplaneLeftConstraint.constant = originalLocation}
     }
-    
-    
-
-    //Play mater sound when mater is pressed
-    @IBAction func playMater(_ sender: Any) {
-        playSound(soundName: "mater_KaChing", fileExt: ".mp3")
-    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
+    
+    
+    //Play mater sound when mater is pressed
+    @IBAction func playMater(_ sender: Any) {
+        playSound(soundName: "mater_KaChing", fileExt: ".mp3")
+        (sender as AnyObject).shake()
+            }
     
     //Function to show video player and play video
     func playVideo(theName: String, fileExt: String){
@@ -160,9 +170,8 @@ class ViewController: UIViewController {
     
     //Pass the number of the image in the array to fetch -- Players
     func FetchPlayerImage(imageNumber: Int){
-        let thePicture = URL(string: playerPicLocation[imageNumber].absoluteString)!
+        let urlString = String(playerPicLocation[imageNumber].absoluteString)!
         
-        let urlString = thePicture.absoluteString
         guard let url = URL(string: urlString) else { return }
         URLSession.shared.dataTask(with: url) { (data, response, error) in
             if error != nil {
@@ -224,7 +233,7 @@ class ViewController: UIViewController {
                 
                 let ClueTextField = alertController.textFields![0] as UITextField
                 
-                self.checkPassword(thePassword: ClueTextField.text!)
+                self.checkPassword(thePassword: ClueTextField.text!.lowercased())
             })
             
             let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: {
@@ -236,10 +245,8 @@ class ViewController: UIViewController {
                 textField.placeholder = "Secret Password"
             }
             
-            
             alertController.addAction(saveAction)
             alertController.addAction(cancelAction)
-            
             
             self.present(alertController, animated: true, completion: nil)
         }
@@ -247,17 +254,20 @@ class ViewController: UIViewController {
     
 
     
-    //Action taken when clue button clicked
+    
+    //Action taken when CLUE BUTTON clicked
     @IBAction func clickButton(_ sender: UIButton) {
         //Ignore click if on introduction screen
-        if qNum != 0{
+        if qNum != 0 && lbl_hint.text == hints[qNum] {
+           sender.shake()
+        }else{
             lbl_hint.text = hints[qNum]
         }
     }
     
     //Check answers array that correct password was entered & display Alert message
     func checkPassword(thePassword: String){
-        let rightPassword = answers[qNum]
+        let rightPassword = answers[qNum].lowercased()
         print("The Actual Password is " + rightPassword)
         print("The Inputted Password was " + thePassword)
        

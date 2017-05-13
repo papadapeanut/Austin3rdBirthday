@@ -135,6 +135,7 @@
                     <connections>
                         <outlet property="airplaneLeftConstraint" destination="Pv5-AL-VsQ" id="9wt-GQ-rSi"/>
                         <outlet property="btn_clue" destination="MLD-sZ-yjC" id="C80-R5-hev"/>
+                        <outlet property="btn_mater" destination="dBJ-co-QEy" id="1d4-Rt-hmV"/>
                         <outlet property="btn_plane" destination="A8W-Kq-kr7" id="wxB-LZ-wuf"/>
                         <outlet property="btn_playVideo" destination="nFC-8l-6yn" id="7yJ-Xg-eA6"/>
                         <outlet property="btn_submit" destination="Zgg-Lr-Ng2" id="Q1m-G7-pa8"/>
