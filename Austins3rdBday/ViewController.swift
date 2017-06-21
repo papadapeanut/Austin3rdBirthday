@@ -60,11 +60,8 @@ class ViewController: UIViewController {
     var hints: [String] = ["", "Cars", "McQueen", "Let's...", "Crusher's BFF"]
     var videoWatched = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
         //Intialize picLocation array to create URLs for pictures
         buildImageArray()
         buildPlayerImageArray()
@@ -76,8 +73,7 @@ class ViewController: UIViewController {
         qNum = 0
         //Set base elements for home screen
         setHomeScreen()
-        //Moving playerImage off screen in order to animate
-        leadingPlayerImageConstraint.constant = view.bounds.width + 250
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -135,6 +131,8 @@ class ViewController: UIViewController {
             })
         }
         else{
+            //Moving playerImage off screen in order to animate
+            leadingPlayerImageConstraint.constant = view.bounds.width + 250
             
             qNum = 0
             
@@ -201,7 +199,7 @@ class ViewController: UIViewController {
         if qNum == numberOfQuestions {
             //Final Clue will be Display
             FetchClueImage(imageNumber: qNum-1)
-            FetchPlayerImage(imageNumber: qNum-1)
+            FetchPlayerImageWithoutAnimation(imageNumber: qNum-1)
             lbl_question.text = "Final Clue"
             btn_submit.isEnabled = false
             btn_submit.isHidden = true
@@ -213,7 +211,7 @@ class ViewController: UIViewController {
             btn_submit.isHidden = false
             question = "Clue #" + String(qNum)
             FetchClueImage(imageNumber: qNum-1)
-            FetchPlayerImage(imageNumber: qNum-1)
+            FetchPlayerImageWithoutAnimation(imageNumber: qNum-1)
             lbl_question.text = question
             //Make sure hint label is empty when loading new question
             lbl_hint.text = "<--Click for hint"
@@ -278,6 +276,17 @@ class ViewController: UIViewController {
     }
     
     
+    //Play Introduction Video on button press
+    @IBAction func PlayVideo(_ sender: Any) {
+        playVideo(theName: "Video", fileExt: ".mp4")
+        self.present(self.playerController, animated: true, completion: {
+            self.playerController.player = self.player
+            self.player?.play()
+            self.videoWatched = true
+        })
+    }
+    
+    
     //Pass the number of the image in the array to fetch --Pictures
     func FetchClueImage(imageNumber: Int){
         let thePicture = URL(string: picLocation[imageNumber].absoluteString)!
@@ -292,32 +301,27 @@ class ViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.clueImage.image = UIImage(data: data!)
-                //Force any outstanding layout changes to occur
-                self.view.layoutIfNeeded()
-                
-                //Set the leading playerImage new constrant -- Where I want animate to end
-                self.leadingPlayerImageConstraint.constant = 0
-                UIView.animate(withDuration: 3,
-                               delay: 0,
-                               options: [.curveEaseOut],
-                               animations: {
-                                self.view.layoutIfNeeded()
-                })
             }
             }.resume()
     }
     
     
-    //Play Introduction Video on button press
-    @IBAction func PlayVideo(_ sender: Any) {
-        playVideo(theName: "Video", fileExt: ".mp4")
-        self.present(self.playerController, animated: true, completion: {
-            self.playerController.player = self.player
-            self.player?.play()
-            self.videoWatched = true
-        })
+    //Set playerImage without Animation & Sound -- When continuing game
+    func FetchPlayerImageWithoutAnimation(imageNumber: Int){
+        let urlString = String(playerPicLocation[imageNumber].absoluteString)!
+        
+        guard let url = URL(string: urlString) else { return }
+        URLSession.shared.dataTask(with: url) { (data, response, error) in
+            if error != nil {
+                print("Failed fetching image:", error!)
+                return
+            }
+            DispatchQueue.main.async {
+                self.playerImage.image = UIImage(data: data!)
+            }
+            }.resume()
     }
-    
+
     
     //Pass the number of the image in the array to fetch -- Players
     func FetchPlayerImage(imageNumber: Int){
@@ -331,6 +335,18 @@ class ViewController: UIViewController {
             }
             DispatchQueue.main.async {
                 self.playerImage.image = UIImage(data: data!)
+                //Force any outstanding layout changes to occur
+                self.view.layoutIfNeeded()
+                
+                //Set the leading playerImage new constrant -- Where I want animate to end
+                self.leadingPlayerImageConstraint.constant = 0
+                UIView.animate(withDuration: 1.85,
+                               delay: 0,
+                               options: [.curveEaseOut],
+                               animations: {
+                               self.playSound(soundName: "soundMissile", fileExt: "mp3")
+                               self.view.layoutIfNeeded()
+                })
             }
             }.resume()
     }

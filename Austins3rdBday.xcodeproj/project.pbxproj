@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		836758991EFAE31F009B3360 /* soundMissile.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 836758981EFAE31F009B3360 /* soundMissile.mp3 */; };
 		EC3C16661EBE394200A67CC4 /* players in Resources */ = {isa = PBXBuildFile; fileRef = EC3C16651EBE394200A67CC4 /* players */; };
 		EC68591F1EC0151200B22992 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC68591D1EC0151200B22992 /* AVFoundation.framework */; };
 		EC6859201EC0151200B22992 /* AVKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EC68591E1EC0151200B22992 /* AVKit.framework */; };
@@ -25,6 +26,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		836758981EFAE31F009B3360 /* soundMissile.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = soundMissile.mp3; sourceTree = "<group>"; };
 		EC3C16651EBE394200A67CC4 /* players */ = {isa = PBXFileReference; lastKnownFileType = folder; path = players; sourceTree = SOURCE_ROOT; };
 		EC68591D1EC0151200B22992 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		EC68591E1EC0151200B22992 /* AVKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVKit.framework; path = System/Library/Frameworks/AVKit.framework; sourceTree = SDKROOT; };
@@ -100,6 +102,7 @@
 				EC6E327A1EBA83CF00C869E5 /* Images.xcassets */,
 				EC6859211EC01D8200B22992 /* Video.mp4 */,
 				EC6859251EC1154700B22992 /* blaze_horn.mp3 */,
+				836758981EFAE31F009B3360 /* soundMissile.mp3 */,
 				ECC566E51EC1560600F21D7A /* miss.mp3 */,
 				ECC566E71EC15B1F00F21D7A /* mater_KaChing.mp3 */,
 				ECE3E9F61EC3769200D5E0F8 /* planeSound.mp3 */,
@@ -177,6 +180,7 @@
 				EC6E32791EBA82A300C869E5 /* Main.storyboard in Resources */,
 				EC3C16661EBE394200A67CC4 /* players in Resources */,
 				EC6859221EC01D8200B22992 /* Video.mp4 in Resources */,
+				836758991EFAE31F009B3360 /* soundMissile.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
