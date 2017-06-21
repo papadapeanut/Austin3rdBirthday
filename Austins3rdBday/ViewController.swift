@@ -19,7 +19,16 @@ extension UIView {
         animation.values = [-20.0, 20.0, -20.0, 20.0, -10.0, 10.0, -5.0, 5.0, 0.0 ]
         layer.add(animation, forKey: "shake")
     }
-}
+
+    func smallShake() {
+        let animation = CAKeyframeAnimation(keyPath: "transform.translation.x")
+        animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionLinear)
+        animation.duration = 0.6
+        animation.values = [-2.5, 2.5, 0.0, 2.5, 0.0, 0.0, 0.0, 0.0, 0.0]
+        layer.add(animation, forKey: "smallShake")
+        }
+    }
+
 class ViewController: UIViewController {
    
     //UI elements
@@ -35,6 +44,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var lbl_hint: UILabel!
     @IBOutlet weak var btn_plane: UIButton!
     @IBOutlet weak var airplaneLeftConstraint: NSLayoutConstraint!
+    @IBOutlet weak var leadingPlayerImageConstraint: NSLayoutConstraint!
     
     //Variable declarations
     var playerController = AVPlayerViewController()
@@ -66,6 +76,8 @@ class ViewController: UIViewController {
         qNum = 0
         //Set base elements for home screen
         setHomeScreen()
+        //Moving playerImage off screen in order to animate
+        leadingPlayerImageConstraint.constant = view.bounds.width + 250
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -213,13 +225,20 @@ class ViewController: UIViewController {
     @IBAction func playPlaneSound(_ sender: UIButton) {
         
         playSound(soundName: "planeSound", fileExt: ".mp3")
+        (sender as AnyObject).smallShake()
         
         //Animation to move airplane off screen then return to original location
         let originalLocation = self.airplaneLeftConstraint.constant
         self.airplaneLeftConstraint.constant = -150
-        UIView.animate(withDuration: 7, animations: {
-            self.view.layoutIfNeeded()
-        }) {_ in self.airplaneLeftConstraint.constant = originalLocation}
+        UIView.animate(withDuration: 7,
+                       delay: 0,
+                       options: [.curveEaseIn],
+                       animations: {
+                            self.view.layoutIfNeeded()
+        }, completion: {_ in
+            self.airplaneLeftConstraint.constant = originalLocation
+            self.audioPlayer?.stop()
+        })
     }
     
     
@@ -273,6 +292,17 @@ class ViewController: UIViewController {
             
             DispatchQueue.main.async {
                 self.clueImage.image = UIImage(data: data!)
+                //Force any outstanding layout changes to occur
+                self.view.layoutIfNeeded()
+                
+                //Set the leading playerImage new constrant -- Where I want animate to end
+                self.leadingPlayerImageConstraint.constant = 0
+                UIView.animate(withDuration: 3,
+                               delay: 0,
+                               options: [.curveEaseOut],
+                               animations: {
+                                self.view.layoutIfNeeded()
+                })
             }
             }.resume()
     }
@@ -299,7 +329,6 @@ class ViewController: UIViewController {
                 print("Failed fetching image:", error!)
                 return
             }
-            
             DispatchQueue.main.async {
                 self.playerImage.image = UIImage(data: data!)
             }
@@ -372,6 +401,7 @@ class ViewController: UIViewController {
             
             clueImage.image = #imageLiteral(resourceName: "goodJob")
             playerImage.image = nil
+            leadingPlayerImageConstraint.constant = view.bounds.width + 250
             btn_submit.isHidden = true
             let alertController = UIAlertController(title: "Assigning below", message: "", preferredStyle: .alert)
             

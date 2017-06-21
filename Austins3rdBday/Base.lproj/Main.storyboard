@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F2073" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="ipad9_7" orientation="landscape">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -155,11 +155,11 @@
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="aJ3-Mv-Tbw"/>
                             <constraint firstItem="dBJ-co-QEy" firstAttribute="leading" secondItem="W7y-Uv-usG" secondAttribute="trailing" constant="113" id="aqN-Cv-vSP"/>
                             <constraint firstItem="dxL-RC-Hp9" firstAttribute="centerX" secondItem="Zgg-Lr-Ng2" secondAttribute="centerX" id="dq2-uR-4wH"/>
+                            <constraint firstItem="0vK-ka-jh6" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="eRG-bO-3r4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RbY-ka-FTs" secondAttribute="trailing" constant="-11" id="eh4-Ne-0TP"/>
                             <constraint firstItem="tLc-UU-v7T" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="9" id="fAh-v0-74l"/>
                             <constraint firstItem="dBJ-co-QEy" firstAttribute="leading" secondItem="06h-Nb-bTv" secondAttribute="trailing" constant="106" id="fNy-Mx-ZjN"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="W7y-Uv-usG" secondAttribute="bottom" constant="107" id="gRd-2v-jk3"/>
-                            <constraint firstItem="eV8-oB-Srm" firstAttribute="leading" secondItem="0vK-ka-jh6" secondAttribute="leading" id="hz8-Zx-r28"/>
                             <constraint firstItem="06h-Nb-bTv" firstAttribute="centerX" secondItem="Zgg-Lr-Ng2" secondAttribute="centerX" id="k1W-6Y-WB0"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Zgg-Lr-Ng2" secondAttribute="bottom" constant="8" symbolic="YES" id="o0X-gS-6ME"/>
                             <constraint firstItem="nFC-8l-6yn" firstAttribute="centerY" secondItem="06h-Nb-bTv" secondAttribute="centerY" id="oK6-6s-bd6"/>
@@ -187,6 +187,7 @@
                         <outlet property="clueImage" destination="dxL-RC-Hp9" id="kYV-TW-knv"/>
                         <outlet property="lbl_hint" destination="RbY-ka-FTs" id="nsF-se-bmq"/>
                         <outlet property="lbl_question" destination="eV8-oB-Srm" id="pZP-0O-DIg"/>
+                        <outlet property="leadingPlayerImageConstraint" destination="eRG-bO-3r4" id="YV7-aj-I5s"/>
                         <outlet property="playerImage" destination="0vK-ka-jh6" id="WOE-Fe-rK8"/>
                     </connections>
                 </viewController>
